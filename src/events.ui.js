@@ -4,7 +4,7 @@ goog.require('goog.dom');
 goog.require('goog.dom.classes');
 goog.require('goog.events.EventType');
 
-annotorious.events.ui.hasTouch = 'ontouchstart' in window;
+annotorious.events.ui.hasTouch = false;//'ontouchstart' in window;
 
 annotorious.events.ui.hasMouse = !annotorious.events.ui.hasTouch; // Just for readability
 
