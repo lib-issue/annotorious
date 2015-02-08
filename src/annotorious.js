@@ -108,9 +108,17 @@ annotorious.Annotorious.prototype.activateSelector = function(opt_item_url_or_ca
  * @param {annotorious.Annotation} annotation the annotation
  * @param {annotorious.Annotation} opt_replace optionally, an existing annotation to replace
  */
-annotorious.Annotorious.prototype.addAnnotation = function(annotation, opt_replace) {  
-  annotation.src = annotorious.dom.toAbsoluteURL(annotation.src);
-  var module = this._getModuleForItemSrc(annotation.src); 
+annotorious.Annotorious.prototype.addAnnotation = function(annotation, opt_replace) {
+  // Support 'url' property to do 'data-origional' item a favor.
+  var url;
+  if (goog.isDefAndNotNull(annotation.url)) {
+    url = annotation.url;
+  }
+  else {
+    annotation.src = annotorious.dom.toAbsoluteURL(annotation.src);
+    url = annotation.src;
+  }
+  var module = this._getModuleForItemSrc(url);
   if (module)
     module.addAnnotation(annotation, opt_replace);
 }
