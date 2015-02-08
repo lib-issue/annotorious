@@ -163,7 +163,7 @@ annotorious.mediatypes.openlayers.OpenLayersAnnotator.prototype.editAnnotation =
     var g2d = this._editCanvas.getContext('2d');
     var shape = annotation.shapes[0];
     var viewportShape = annotorious.shape.transform(shape, function(xy) { return self.fromItemCoordinates(xy); });
-    console.log(viewportShape);
+    //console.log(viewportShape);
     selector.drawShape(g2d, viewportShape);
 
     var viewportBounds = annotorious.shape.getBoundingRect(viewportShape).geometry;
@@ -230,7 +230,7 @@ annotorious.mediatypes.openlayers.OpenLayersAnnotator.prototype.toItemCoordinate
 	           width: itemOpposite.lon - itemCoords.lon,
 	           height: itemCoords.lat - itemOpposite.lat };
              
-    console.log(foo);
+    //console.log(foo);
     return foo;
   } else {
     return { x: itemCoords.lon, y: itemCoords.lat };

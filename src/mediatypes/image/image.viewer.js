@@ -241,10 +241,12 @@ annotorious.mediatypes.image.Viewer.prototype._draw = function(shape, highlight)
     return selector.getSupportedShapeType() == shape.type;
   });  
 
-  if (selector)
+  if (selector) {
     selector.drawShape(this._g2d, shape, highlight);
-  else
-    console.log('WARNING unsupported shape type: ' + shape.type);
+  }
+  else {
+    //console.log('WARNING unsupported shape type: ' + shape.type);
+  }
 }
 
 /**

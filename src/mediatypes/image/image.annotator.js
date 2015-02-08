@@ -324,8 +324,9 @@ annotorious.mediatypes.image.ImageAnnotator.prototype.setCurrentSelector = funct
     return sel.getName() == selector;
   });
 
-  if (!this._currentSelector)
-    console.log('WARNING: selector "' + selector + '" not available'); 
+  if (!this._currentSelector) {
+    //console.log('WARNING: selector "' + selector + '" not available');
+  }
 }
 
 /**

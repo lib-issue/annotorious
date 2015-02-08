@@ -156,7 +156,7 @@ annotorious.Annotorious.prototype.addPlugin = function(plugin_name, opt_config_o
       this._plugins.push(plugin);  
     }
   } catch (error) {
-    console.log('Could not load plugin: ' + plugin_name);
+    //console.log('Could not load plugin: ' + plugin_name);
   }
 }
 

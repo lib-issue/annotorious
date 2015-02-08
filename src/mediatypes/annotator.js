@@ -53,8 +53,8 @@ annotorious.mediatypes.Annotator.prototype.stopSelection = function(original_ann
 annotorious.mediatypes.Annotator.prototype._attachListener = function(activeCanvas) {
   var self = this;
   goog.events.listen(activeCanvas, annotorious.events.ui.EventType.DOWN, function(event) {
-    console.log('start selection event');
-    console.log(event);
+    //console.log('start selection event');
+    //console.log(event);
     var coords = annotorious.events.ui.sanitizeCoordinates(event, activeCanvas);
     self._viewer.highlightAnnotation(false);
 		if (self._selectionEnabled) {
