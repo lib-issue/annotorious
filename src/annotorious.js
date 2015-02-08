@@ -113,6 +113,7 @@ annotorious.Annotorious.prototype.addAnnotation = function(annotation, opt_repla
   var url;
   if (goog.isDefAndNotNull(annotation.url)) {
     url = annotation.url;
+    annotation.src = url;
   }
   else {
     annotation.src = annotorious.dom.toAbsoluteURL(annotation.src);
