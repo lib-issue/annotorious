@@ -64,6 +64,7 @@ annotorious.mediatypes.image.ImageAnnotator = function(item, opt_popup) {
   this._selectionEnabled = true;
 
   this.element = goog.dom.createDom('div', 'annotorious-annotationlayer');
+  goog.style.setStyle(this.element, 'width', '100%');
   goog.style.setStyle(this.element, 'position', 'relative');
   goog.style.setStyle(this.element, 'display', 'inline-block');
   this._transferStyles(item, this.element);
@@ -71,12 +72,12 @@ annotorious.mediatypes.image.ImageAnnotator = function(item, opt_popup) {
   goog.dom.replaceNode(this.element, item);
   goog.dom.appendChild(this.element, item);
 
-  var img_bounds = goog.style.getBounds(item);  
+  var img_bounds = goog.style.getBounds(item);
   this._viewCanvas = goog.soy.renderAsElement(annotorious.templates.image.canvas,
     { width:img_bounds.width, height:img_bounds.height });
   if (annotorious.events.ui.hasMouse)
     goog.dom.classes.add(this._viewCanvas, 'annotorious-item-unfocus');
-  goog.dom.appendChild(this.element, this._viewCanvas);   
+  goog.dom.appendChild(this.element, this._viewCanvas);
 
   this._editCanvas = goog.soy.renderAsElement(annotorious.templates.image.canvas, 
     { width:img_bounds.width, height:img_bounds.height });
@@ -120,6 +121,7 @@ annotorious.mediatypes.image.ImageAnnotator = function(item, opt_popup) {
   }
 
   var activeCanvas = (annotorious.events.ui.hasTouch) ? this._editCanvas : this._viewCanvas;
+
   this._attachListener(activeCanvas);
 
   this._eventBroker.addHandler(annotorious.events.EventType.SELECTION_COMPLETED, function(event) {

@@ -39,7 +39,7 @@ annotorious.Annotorious = function() {
 annotorious.Annotorious.prototype._init = function() {
   if (this._isInitialized)
     return;
-  
+
   var self = this;
   goog.array.forEach(this._modules, function(module) {
     module.init();
